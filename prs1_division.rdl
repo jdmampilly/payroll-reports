@@ -17,7 +17,12 @@
     <DataSet Name="vw_payroll_summary">
       <Query>
         <DataSourceName>payroll</DataSourceName>
-        <CommandText>select * from vw_payroll_summary order by emp_code asc</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@divCode">
+            <Value>=Parameters!divCode.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select * from vw_payroll_summary  where division_code = (@divCode) order by emp_code asc</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -164,7 +169,7 @@
                   <Width>10.0384mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>51.3155mm</Width>
+                  <Width>57.40527mm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>18.92411mm</Width>
@@ -173,16 +178,16 @@
                   <Width>14.6148mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>15.67758mm</Width>
+                  <Width>13.18194mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>18.29137mm</Width>
+                  <Width>15.64554mm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>13.05278mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>27.25828mm</Width>
+                  <Width>23.80626mm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>16.88612mm</Width>
@@ -194,10 +199,10 @@
                   <Width>13.79293mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>15.58503mm</Width>
+                  <Width>14.39467mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>15.00739mm</Width>
+                  <Width>13.95783mm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>17.76806mm</Width>
@@ -633,7 +638,22 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Esk Bnk</Value>
+                                  <Value>Eskan </Value>
+                                  <Style>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Bank</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -3561,7 +3581,7 @@
             <Top>3.70417mm</Top>
             <Left>0mm</Left>
             <Height>42mm</Height>
-            <Width>283.92484mm</Width>
+            <Width>279.1812mm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3581,7 +3601,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>288.8395mm</Width>
+      <Width>290.69158mm</Width>
       <Page>
         <PageHeader>
           <Height>3.08681cm</Height>
@@ -3773,7 +3793,7 @@
               <Value>aaklogo</Value>
               <Sizing>FitProportional</Sizing>
               <Top>0.04445cm</Top>
-              <Left>25.3492cm</Left>
+              <Left>25.76195cm</Left>
               <Height>1.41533cm</Height>
               <Width>2.15617cm</Width>
               <ZIndex>5</ZIndex>
@@ -3791,7 +3811,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>19.3675mm</Height>
+          <Height>9.57792mm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3814,10 +3834,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>11.43mm</Top>
+              <Top>1.905mm</Top>
               <Left>30.1625mm</Left>
               <Height>6.35mm</Height>
-              <Width>32.7789mm</Width>
+              <Width>73.55417mm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3846,7 +3866,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>1.12301cm</Top>
+              <Top>0.17051cm</Top>
               <Left>0.30551cm</Left>
               <Height>0.59222cm</Height>
               <Width>2.56963cm</Width>
@@ -3878,8 +3898,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
-              <Top>1.11523cm</Top>
-              <Left>24.80986cm</Left>
+              <Top>0.16273cm</Top>
+              <Left>25.12736cm</Left>
               <Height>0.6cm</Height>
               <Width>1.30938cm</Width>
               <ZIndex>2</ZIndex>
@@ -3910,8 +3930,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>1.10112cm</Top>
-              <Left>26.18979cm</Left>
+              <Top>0.14862cm</Top>
+              <Left>26.50729cm</Left>
               <Height>0.6cm</Height>
               <Width>0.567cm</Width>
               <ZIndex>3</ZIndex>
@@ -3944,8 +3964,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>OverallTotalPages</rd:DefaultName>
-              <Top>1.10464cm</Top>
-              <Left>26.82734cm</Left>
+              <Top>0.15214cm</Top>
+              <Left>27.14484cm</Left>
               <Height>0.6cm</Height>
               <Width>1.03255cm</Width>
               <ZIndex>4</ZIndex>
@@ -3976,528 +3996,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox9</rd:DefaultName>
-              <Top>1.15051cm</Top>
-              <Left>23.77581cm</Left>
+              <Top>0.19801cm</Top>
+              <Left>24.09331cm</Left>
               <Height>0.62749cm</Height>
               <Width>1.04069cm</Width>
               <ZIndex>5</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox55">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!basic_salary.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>6.29414cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.9191cm</Width>
-              <ZIndex>6</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox57">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!rent_allowance.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>8.18655cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.46148cm</Width>
-              <ZIndex>7</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox71">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!travel_allowance.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>9.75386cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.43679cm</Width>
-              <ZIndex>8</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox72">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!spage_allowance.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>11.36704cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.67789cm</Width>
-              <ZIndex>9</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox73">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!nShift_allowance.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>13.15076cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.19944cm</Width>
-              <ZIndex>10</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox74">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!other_allowance_total.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>14.42076cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>2.65527cm</Width>
-              <ZIndex>11</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox76">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!ot_total.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>17.25242cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.51222cm</Width>
-              <ZIndex>12</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox77">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!sub_total.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>18.94103cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.60042cm</Width>
-              <ZIndex>13</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox78">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!loan_deduction.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>20.45926cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.46148cm</Width>
-              <ZIndex>14</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox79">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!hbank_loan.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>21.95602cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.46148cm</Width>
-              <ZIndex>15</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox80">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!gosi_amt.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>23.55861cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.46148cm</Width>
-              <ZIndex>16</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox81">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!other_deduction_total.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>25.19648cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.46148cm</Width>
-              <ZIndex>17</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox82">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!net_salary.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>26.73209cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.59689cm</Width>
-              <ZIndex>18</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox52">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Grand Total:</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox52</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>3.61775cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.5cm</Width>
-              <ZIndex>19</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4528,10 +4031,23 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="divCode">
+      <DataType>String</DataType>
+      <Prompt>divCode</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>divCode</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <EmbeddedImages>

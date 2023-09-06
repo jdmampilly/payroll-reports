@@ -7,9 +7,9 @@
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
         <ConnectString>Data Source=aak-payroll;Initial Catalog=Payroll-v2</ConnectString>
-        <Prompt>Enter a user name and password to access the data source:</Prompt>
+        <IntegratedSecurity>true</IntegratedSecurity>
       </ConnectionProperties>
-      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:SecurityType>Integrated</rd:SecurityType>
       <rd:DataSourceID>f50b1dc8-484c-456c-8da7-1d6db9fe2316</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -17,7 +17,12 @@
     <DataSet Name="vw_payroll_summary">
       <Query>
         <DataSourceName>payroll</DataSourceName>
-        <CommandText>select * from vw_payroll_summary order by emp_code asc</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@divCode">
+            <Value>=Parameters!divCode.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select * from vw_payroll_summary where division_code = (@divCode)</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -27,10 +32,6 @@
         </Field>
         <Field Name="emp_name">
           <DataField>emp_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="full_name">
-          <DataField>full_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="dept_code">
@@ -45,93 +46,77 @@
           <DataField>division_code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="BANK_CODE">
-          <DataField>BANK_CODE</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="division_name">
           <DataField>division_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="AC_NO">
-          <DataField>AC_NO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="basic_salary">
           <DataField>basic_salary</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="attendance">
           <DataField>attendance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="loan_deduction">
           <DataField>loan_deduction</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="rent_allowance">
           <DataField>rent_allowance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="travel_allowance">
           <DataField>travel_allowance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="spage_allowance">
           <DataField>spage_allowance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="gosi_amt">
           <DataField>gosi_amt</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="hbank_loan">
           <DataField>hbank_loan</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="nShift_allowance">
           <DataField>nShift_allowance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="other_allowance_total">
           <DataField>other_allowance_total</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="other_deduction_total">
           <DataField>other_deduction_total</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="late_hrs">
           <DataField>late_hrs</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="other_allw">
+          <DataField>other_allw</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="other_ded">
+          <DataField>other_ded</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="ot_total">
           <DataField>ot_total</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="sub_total">
           <DataField>sub_total</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="net_salary">
           <DataField>net_salary</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="lateHoursAmount">
-          <DataField>lateHoursAmount</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="TRN_MONTH">
-          <DataField>TRN_MONTH</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TRN_YEAR">
-          <DataField>TRN_YEAR</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="total_deductions">
-          <DataField>total_deductions</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -152,11 +137,65 @@
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="division">
+      <Query>
+        <DataSourceName>payroll</DataSourceName>
+        <CommandText>select  division_code from division</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="division_code">
+          <DataField>division_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
         <ReportItems>
+          <Textbox Name="AAK">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Payroll Summary</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>28pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>E3</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
+            <Top>0mm</Top>
+            <Left>0.254cm</Left>
+            <Height>14.99306mm</Height>
+            <Width>288.32363mm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
           <Tablix Name="Tablix2">
             <TablixBody>
               <TablixColumns>
@@ -164,40 +203,40 @@
                   <Width>10.0384mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>51.3155mm</Width>
+                  <Width>52.94267mm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>18.92411mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>14.6148mm</Width>
+                  <Width>10.88022mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>15.67758mm</Width>
+                  <Width>12.12361mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>18.29137mm</Width>
+                  <Width>11.91577mm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>13.05278mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>27.25828mm</Width>
+                  <Width>17.19168mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>16.88612mm</Width>
+                  <Width>15.29862mm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>17.76805mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>13.79293mm</Width>
+                  <Width>11.77083mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>15.58503mm</Width>
+                  <Width>15.29861mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>15.00739mm</Width>
+                  <Width>11.41806mm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>17.76806mm</Width>
@@ -236,8 +275,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -272,8 +310,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -310,8 +347,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -348,8 +384,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -386,8 +421,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -405,7 +439,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>SP Alw</Value>
+                                  <Value>SPage</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -424,8 +458,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -462,8 +495,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -500,8 +532,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -519,7 +550,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Over Time</Value>
+                                  <Value>Over time</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -538,8 +569,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -576,8 +606,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -595,7 +624,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Loan</Value>
+                                  <Value>Loans</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -614,8 +643,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -633,7 +661,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Esk Bnk</Value>
+                                  <Value>HS Bank</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -652,8 +680,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -671,7 +698,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>GOSI</Value>
+                                  <Value>Gosi</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -690,8 +717,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -709,7 +735,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Other Ded.</Value>
+                                  <Value>Other Deds.</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -728,8 +754,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -766,8 +791,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -790,11 +814,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=UCase(Fields!division_name.Value)</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
+                                    <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -844,11 +867,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!dept_name.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -968,7 +990,6 @@
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <Format>#,0.000;(#,0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1076,7 +1097,6 @@
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <Format>0.000;(0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1148,7 +1168,6 @@
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <Format>0.000;(0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1328,7 +1347,6 @@
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <Format>#,0.000;(#,0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1437,7 +1455,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Total:</Value>
+                                  <Value>="Total:"+Fields!dept_name.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1459,8 +1477,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1485,7 +1501,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.000;(#,0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1505,8 +1520,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1549,8 +1562,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1593,8 +1604,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1617,7 +1626,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>0.000;(0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1637,8 +1645,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1681,8 +1687,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1705,7 +1709,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.000;(#,0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1725,8 +1728,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1769,8 +1770,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1813,8 +1812,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1857,8 +1854,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1901,8 +1896,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1925,7 +1918,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.000;(#,0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1945,8 +1937,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1989,8 +1979,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2033,534 +2021,6 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </TopBorder>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>6mm</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox22">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox22</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox24">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox24</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox26">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox26</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox28">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox28</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox30">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox30</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox32">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox32</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox34">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox34</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox36">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox36</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox38">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox38</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox40">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox40</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox42">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox42</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox44">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox44</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox46">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox46</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox48">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox48</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox50">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox50</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2583,7 +2043,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>="TOTAL FOR : "+Fields!division_name.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2601,7 +2061,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2626,7 +2085,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.000;(#,0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2642,7 +2100,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2681,7 +2138,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2720,7 +2176,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2743,7 +2198,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.000;(#,0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2759,7 +2213,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2798,7 +2251,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2821,7 +2273,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.000;(#,0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2837,7 +2288,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2876,7 +2326,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2915,7 +2364,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2954,7 +2402,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2993,7 +2440,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3016,7 +2462,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.000;(#,0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3032,7 +2477,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3071,7 +2515,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3110,7 +2553,6 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3146,7 +2588,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>0.79375mm</Size>
+                    <Size>16.18055mm</Size>
                     <CellContents>
                       <Textbox Name="Textbox53">
                         <CanGrow>true</CanGrow>
@@ -3155,7 +2597,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value />
+                                <Value>Division</Value>
                                 <Style>
                                   <FontFamily>Times New Roman</FontFamily>
                                   <FontSize>8pt</FontSize>
@@ -3172,8 +2614,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>LightGrey</BackgroundColor>
-                          <VerticalAlign>Middle</VerticalAlign>
+                          <BackgroundColor>Silver</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -3185,7 +2626,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.79375mm</Size>
+                        <Size>19.19494mm</Size>
                         <CellContents>
                           <Textbox Name="Textbox87">
                             <CanGrow>true</CanGrow>
@@ -3194,7 +2635,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value />
+                                    <Value>Department</Value>
                                     <Style>
                                       <FontFamily>Times New Roman</FontFamily>
                                       <FontSize>8pt</FontSize>
@@ -3202,9 +2643,7 @@
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
-                                <Style>
-                                  <TextAlign>Left</TextAlign>
-                                </Style>
+                                <Style />
                               </Paragraph>
                             </Paragraphs>
                             <rd:DefaultName>Textbox87</rd:DefaultName>
@@ -3213,8 +2652,7 @@
                                 <Color>LightGrey</Color>
                                 <Style>Solid</Style>
                               </Border>
-                              <BackgroundColor>LightGrey</BackgroundColor>
-                              <VerticalAlign>Middle</VerticalAlign>
+                              <BackgroundColor>Silver</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -3229,16 +2667,12 @@
                     </TablixMember>
                   </TablixMembers>
                   <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="division_code">
                     <GroupExpressions>
                       <GroupExpression>=Fields!division_code.Value</GroupExpression>
                     </GroupExpressions>
-                    <PageBreak>
-                      <BreakLocation>Between</BreakLocation>
-                    </PageBreak>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
@@ -3248,7 +2682,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.5875mm</Size>
+                        <Size>35.37549mm</Size>
                         <CellContents>
                           <Textbox Name="division_name1">
                             <CanGrow>true</CanGrow>
@@ -3257,9 +2691,10 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value />
+                                    <Value>=Fields!division_name.Value</Value>
                                     <Style>
                                       <FontFamily>Times New Roman</FontFamily>
+                                      <FontSize>8pt</FontSize>
                                       <FontWeight>Bold</FontWeight>
                                     </Style>
                                   </TextRun>
@@ -3287,7 +2722,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.79375mm</Size>
+                        <Size>16.18055mm</Size>
                         <CellContents>
                           <Textbox Name="Textbox124">
                             <CanGrow>true</CanGrow>
@@ -3335,7 +2770,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>0.79375mm</Size>
+                                <Size>19.19494mm</Size>
                                 <CellContents>
                                   <Textbox Name="dept_name">
                                     <CanGrow>true</CanGrow>
@@ -3344,7 +2779,7 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value />
+                                            <Value>=Fields!dept_name.Value</Value>
                                             <Style>
                                               <FontFamily>Times New Roman</FontFamily>
                                               <FontSize>8pt</FontSize>
@@ -3377,7 +2812,7 @@
                             </TablixMember>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>0.79375mm</Size>
+                                <Size>19.19494mm</Size>
                                 <CellContents>
                                   <Textbox Name="Textbox126">
                                     <CanGrow>true</CanGrow>
@@ -3418,60 +2853,9 @@
                             </TablixMember>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>0.79375mm</Size>
+                                <Size>19.19494mm</Size>
                                 <CellContents>
                                   <Textbox Name="Textbox127">
-                                    <CanGrow>true</CanGrow>
-                                    <KeepTogether>true</KeepTogether>
-                                    <Paragraphs>
-                                      <Paragraph>
-                                        <TextRuns>
-                                          <TextRun>
-                                            <Value>="TOTAL : "</Value>
-                                            <Style>
-                                              <FontFamily>Times New Roman</FontFamily>
-                                              <FontSize>8pt</FontSize>
-                                              <FontWeight>Bold</FontWeight>
-                                            </Style>
-                                          </TextRun>
-                                        </TextRuns>
-                                        <Style>
-                                          <TextAlign>Right</TextAlign>
-                                        </Style>
-                                      </Paragraph>
-                                    </Paragraphs>
-                                    <rd:DefaultName>Textbox127</rd:DefaultName>
-                                    <Style>
-                                      <Border>
-                                        <Color>LightGrey</Color>
-                                        <Style>Solid</Style>
-                                      </Border>
-                                      <TopBorder>
-                                        <Color>White</Color>
-                                        <Style>None</Style>
-                                        <Width>1pt</Width>
-                                      </TopBorder>
-                                      <BackgroundColor>LightGrey</BackgroundColor>
-                                      <VerticalAlign>Middle</VerticalAlign>
-                                      <PaddingLeft>2pt</PaddingLeft>
-                                      <PaddingRight>2pt</PaddingRight>
-                                      <PaddingTop>2pt</PaddingTop>
-                                      <PaddingBottom>2pt</PaddingBottom>
-                                    </Style>
-                                  </Textbox>
-                                </CellContents>
-                              </TablixHeader>
-                              <TablixMembers>
-                                <TablixMember>
-                                  <KeepWithGroup>Before</KeepWithGroup>
-                                </TablixMember>
-                              </TablixMembers>
-                            </TablixMember>
-                            <TablixMember>
-                              <TablixHeader>
-                                <Size>0.79375mm</Size>
-                                <CellContents>
-                                  <Textbox Name="Textbox21">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
@@ -3486,16 +2870,20 @@
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
-                                        <Style>
-                                          <TextAlign>Right</TextAlign>
-                                        </Style>
+                                        <Style />
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Textbox21</rd:DefaultName>
+                                    <rd:DefaultName>Textbox127</rd:DefaultName>
                                     <Style>
                                       <Border>
-                                        <Style>None</Style>
+                                        <Color>LightGrey</Color>
+                                        <Style>Solid</Style>
                                       </Border>
+                                      <TopBorder>
+                                        <Color>White</Color>
+                                        <Style>None</Style>
+                                        <Width>1pt</Width>
+                                      </TopBorder>
                                       <PaddingLeft>2pt</PaddingLeft>
                                       <PaddingRight>2pt</PaddingRight>
                                       <PaddingTop>2pt</PaddingTop>
@@ -3504,6 +2892,11 @@
                                   </Textbox>
                                 </CellContents>
                               </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember>
+                                  <KeepWithGroup>Before</KeepWithGroup>
+                                </TablixMember>
+                              </TablixMembers>
                             </TablixMember>
                           </TablixMembers>
                         </TablixMember>
@@ -3511,7 +2904,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.5875mm</Size>
+                        <Size>35.37549mm</Size>
                         <CellContents>
                           <Textbox Name="Textbox125">
                             <CanGrow>true</CanGrow>
@@ -3520,7 +2913,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value />
+                                    <Value>="Total:"+Fields!division_name.Value</Value>
                                     <Style>
                                       <FontFamily>Times New Roman</FontFamily>
                                       <FontSize>8pt</FontSize>
@@ -3538,7 +2931,6 @@
                                 <Style>Solid</Style>
                               </Border>
                               <BackgroundColor>LightGrey</BackgroundColor>
-                              <VerticalAlign>Middle</VerticalAlign>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -3557,11 +2949,14 @@
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <RepeatRowHeaders>true</RepeatRowHeaders>
+            <FixedColumnHeaders>true</FixedColumnHeaders>
+            <FixedRowHeaders>true</FixedRowHeaders>
             <DataSetName>vw_payroll_summary</DataSetName>
-            <Top>3.70417mm</Top>
-            <Left>0mm</Left>
-            <Height>42mm</Height>
-            <Width>283.92484mm</Width>
+            <Top>25.92917mm</Top>
+            <Left>3.175mm</Left>
+            <Height>36mm</Height>
+            <Width>288.1239mm</Width>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3570,228 +2965,133 @@
             <cl:ComponentMetadata>
               <cl:ComponentId>bf6a4032-ab34-4772-a0bb-3304d2f06471</cl:ComponentId>
               <cl:SourcePath>/ReportParts/Tablix2</cl:SourcePath>
-              <cl:SyncDate>2022-03-13T13:52:12.4766364+03:00</cl:SyncDate>
+              <cl:SyncDate>2022-04-18T09:44:42.3181599+03:00</cl:SyncDate>
             </cl:ComponentMetadata>
           </Tablix>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>For the period: </Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>1.80481cm</Top>
+            <Left>0.25259cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="month_name">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!month_name.Value, "month")</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>month_name</rd:DefaultName>
+            <Top>1.82006cm</Top>
+            <Left>2.92898cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="year">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!year.Value, "month")</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>year</rd:DefaultName>
+            <Top>1.80128cm</Top>
+            <Left>5.56542cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line1">
+            <Top>1.15217cm</Top>
+            <Left>0.09384cm</Left>
+            <Height>-0.07056cm</Height>
+            <Width>-0.03528cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
         </ReportItems>
-        <Height>45.70417mm</Height>
+        <Height>61.92917mm</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>288.8395mm</Width>
+      <Width>298.10696mm</Width>
       <Page>
-        <PageHeader>
-          <Height>3.08681cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Textbox Name="AAK">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>DAR AKHBAR ALKHALEEJ PRESS &amp; PUBLISHING</Value>
-                      <Style>
-                        <FontStyle>Normal</FontStyle>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>16pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <TextDecoration>None</TextDecoration>
-                        <Color>#000000</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
-              <Top>0.9525mm</Top>
-              <Left>3.01625cm</Left>
-              <Height>9.27806mm</Height>
-              <Width>218.0025mm</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="month_name">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!month_name.Value, "month")</Value>
-                      <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>month_name</rd:DefaultName>
-              <Top>2.2575cm</Top>
-              <Left>3.01625cm</Left>
-              <Height>0.6cm</Height>
-              <Width>1.92736cm</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox1">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>For the period: </Value>
-                      <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.24225cm</Top>
-              <Left>0.25259cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.58727cm</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="year">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!year.Value, "month")</Value>
-                      <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>year</rd:DefaultName>
-              <Top>2.23872cm</Top>
-              <Left>5.22583cm</Left>
-              <Height>0.6cm</Height>
-              <Width>5.14583cm</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="AAK2">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>PAYROLL SUMMARY</Value>
-                      <Style>
-                        <FontStyle>Normal</FontStyle>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>16pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <TextDecoration>None</TextDecoration>
-                        <Color>#000000</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
-              <Top>11.43002mm</Top>
-              <Left>3.01625cm</Left>
-              <Height>9.27806mm</Height>
-              <Width>218.0025mm</Width>
-              <ZIndex>4</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Image Name="Image1">
-              <Source>Embedded</Source>
-              <Value>aaklogo</Value>
-              <Sizing>FitProportional</Sizing>
-              <Top>0.04445cm</Top>
-              <Left>25.3492cm</Left>
-              <Height>1.41533cm</Height>
-              <Width>2.15617cm</Width>
-              <ZIndex>5</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Image>
-          </ReportItems>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageHeader>
         <PageFooter>
-          <Height>19.3675mm</Height>
+          <Height>11.43mm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3814,10 +3114,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>11.43mm</Top>
+              <Top>5.08mm</Top>
               <Left>30.1625mm</Left>
               <Height>6.35mm</Height>
-              <Width>32.7789mm</Width>
+              <Width>73.55417mm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3846,8 +3146,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>1.12301cm</Top>
-              <Left>0.30551cm</Left>
+              <Top>0.55078cm</Top>
+              <Left>0.37606cm</Left>
               <Height>0.59222cm</Height>
               <Width>2.56963cm</Width>
               <ZIndex>1</ZIndex>
@@ -3878,10 +3178,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
-              <Top>1.11523cm</Top>
-              <Left>24.80986cm</Left>
+              <Top>0.48023cm</Top>
+              <Left>24.88923cm</Left>
               <Height>0.6cm</Height>
-              <Width>1.30938cm</Width>
+              <Width>2.5cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -3910,8 +3210,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>1.10112cm</Top>
-              <Left>26.18979cm</Left>
+              <Top>0.46612cm</Top>
+              <Left>27.45979cm</Left>
               <Height>0.6cm</Height>
               <Width>0.567cm</Width>
               <ZIndex>3</ZIndex>
@@ -3944,8 +3244,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>OverallTotalPages</rd:DefaultName>
-              <Top>1.10464cm</Top>
-              <Left>26.82734cm</Left>
+              <Top>0.46964cm</Top>
+              <Left>28.09734cm</Left>
               <Height>0.6cm</Height>
               <Width>1.03255cm</Width>
               <ZIndex>4</ZIndex>
@@ -3976,528 +3276,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox9</rd:DefaultName>
-              <Top>1.15051cm</Top>
+              <Top>0.51551cm</Top>
               <Left>23.77581cm</Left>
               <Height>0.62749cm</Height>
               <Width>1.04069cm</Width>
               <ZIndex>5</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox55">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!basic_salary.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>6.29414cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.9191cm</Width>
-              <ZIndex>6</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox57">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!rent_allowance.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>8.18655cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.46148cm</Width>
-              <ZIndex>7</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox71">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!travel_allowance.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>9.75386cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.43679cm</Width>
-              <ZIndex>8</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox72">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!spage_allowance.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>11.36704cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.67789cm</Width>
-              <ZIndex>9</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox73">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!nShift_allowance.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>13.15076cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.19944cm</Width>
-              <ZIndex>10</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox74">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!other_allowance_total.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>14.42076cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>2.65527cm</Width>
-              <ZIndex>11</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox76">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!ot_total.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>17.25242cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.51222cm</Width>
-              <ZIndex>12</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox77">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!sub_total.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>18.94103cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.60042cm</Width>
-              <ZIndex>13</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox78">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!loan_deduction.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>20.45926cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.46148cm</Width>
-              <ZIndex>14</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox79">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!hbank_loan.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>21.95602cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.46148cm</Width>
-              <ZIndex>15</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox80">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!gosi_amt.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>23.55861cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.46148cm</Width>
-              <ZIndex>16</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox81">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!other_deduction_total.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>25.19648cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.46148cm</Width>
-              <ZIndex>17</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox82">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!net_salary.Value, "vw_payroll_summary")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.000;(#,0.000)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox55</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>26.73209cm</Left>
-              <Height>0.51181cm</Height>
-              <Width>1.59689cm</Width>
-              <ZIndex>18</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox52">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Grand Total:</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox52</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>3.61775cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.5cm</Width>
-              <ZIndex>19</ZIndex>
-              <Visibility>
-                <Hidden>=Globals!PageNumber &lt;&gt; Globals!TotalPages</Hidden>
-              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4519,7 +3302,7 @@
         <PageWidth>29.7cm</PageWidth>
         <InteractiveHeight>210mm</InteractiveHeight>
         <InteractiveWidth>297mm</InteractiveWidth>
-        <LeftMargin>0.4cm</LeftMargin>
+        <LeftMargin>0.2cm</LeftMargin>
         <RightMargin>0.2cm</RightMargin>
         <TopMargin>0.2cm</TopMargin>
         <BottomMargin>0.2cm</BottomMargin>
@@ -4528,37 +3311,52 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="divCode">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>division</DataSetName>
+          <ValueField>division_code</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Division</Prompt>
+      <cl:ComponentMetadata>
+        <cl:ComponentId>980ff851-d4bb-48af-8d96-7a0a72520f2a</cl:ComponentId>
+        <cl:SourcePath>/ReportParts/divCode</cl:SourcePath>
+        <cl:SyncDate>2022-04-18T09:44:41.8205702+03:00</cl:SyncDate>
+      </cl:ComponentMetadata>
+    </ReportParameter>
+    <ReportParameter Name="deptCode">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Department</Prompt>
+      <cl:ComponentMetadata>
+        <cl:ComponentId>8ad673e8-a2ac-4fca-b514-4b25207a6b79</cl:ComponentId>
+        <cl:SourcePath>/ReportParts/deptCode</cl:SourcePath>
+        <cl:SyncDate>2022-04-18T09:44:42.5227265+03:00</cl:SyncDate>
+      </cl:ComponentMetadata>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>divCode</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>deptCode</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
-  <EmbeddedImages>
-    <EmbeddedImage Name="aaklogo">
-      <MIMEType>image/png</MIMEType>
-      <ImageData>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</ImageData>
-    </EmbeddedImage>
-  </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportServerUrl>http://aak-payroll/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>3da0e2a1-8738-47aa-b8e4-2f797fa3d4ed</rd:ReportID>

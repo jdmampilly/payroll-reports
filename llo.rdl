@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -17,7 +17,7 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>select * from vw_llo</CommandText>
+        <CommandText>select * from vw_llo order by emp_code asc</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -947,6 +947,11 @@
                   <Style>None</Style>
                 </Border>
               </Style>
+              <cl:ComponentMetadata>
+                <cl:ComponentId>f5bba094-2ccb-4420-8b0d-041a4334e996</cl:ComponentId>
+                <cl:SourcePath>/ReportParts/Logo</cl:SourcePath>
+                <cl:SyncDate>2023-01-29T16:27:47.9350322+03:00</cl:SyncDate>
+              </cl:ComponentMetadata>
             </Image>
             <Textbox Name="Textbox47">
               <CanGrow>true</CanGrow>
@@ -1083,5 +1088,6 @@ Gi1EXIBKQm7AwgV7Iv/AjtLWEKIgQXOWyC1GvGxwWzU2nclu9Ls9AZcv4EY5jBSWKoitfp/e6XCGQ2qr
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportServerUrl>http://aak-payroll/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>feffdfa8-d25f-4588-8df3-0e9251723312</rd:ReportID>
 </Report>

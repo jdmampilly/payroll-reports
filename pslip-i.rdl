@@ -223,7 +223,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox21</rd:DefaultName>
-                              <Top>0.011cm</Top>
+                              <Top>0.3285cm</Top>
                               <Left>1.11125cm</Left>
                               <Height>1.58778cm</Height>
                               <Width>16.75694cm</Width>
@@ -238,7 +238,7 @@
                               </Style>
                             </Textbox>
                             <Line Name="Line1">
-                              <Top>1.66228cm</Top>
+                              <Top>1.97978cm</Top>
                               <Left>1.04894cm</Left>
                               <Height>0cm</Height>
                               <Width>18.46389cm</Width>
@@ -253,8 +253,9 @@
                               <Source>Embedded</Source>
                               <Value>aaklogo1</Value>
                               <Sizing>Fit</Sizing>
+                              <Top>0.3175cm</Top>
                               <Left>18.01283cm</Left>
-                              <Height>1.5cm</Height>
+                              <Height>1.20896cm</Height>
                               <Width>1.85983cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
@@ -282,8 +283,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>1.73284cm</Top>
-                              <Left>4.73661cm</Left>
+                              <Top>2.05034cm</Top>
+                              <Left>3.78411cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.18722cm</Width>
                               <ZIndex>3</ZIndex>
@@ -306,17 +307,20 @@
                                       <Value>=UCase(Fields!dept_name.Value)</Value>
                                       <Style>
                                         <FontSize>8pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>dept_name</rd:DefaultName>
-                              <Top>3.49027cm</Top>
-                              <Left>4.73661cm</Left>
+                              <Top>3.19649cm</Top>
+                              <Left>11.00724cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>6.31472cm</Width>
+                              <Width>8.14576cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
@@ -345,10 +349,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>1.73284cm</Top>
+                              <Top>2.05034cm</Top>
                               <Left>1.48872cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>3.0715cm</Width>
+                              <Width>2.05903cm</Width>
                               <ZIndex>5</ZIndex>
                               <Style>
                                 <Border>
@@ -405,12 +409,14 @@
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>3.49027cm</Top>
-                              <Left>1.48991cm</Left>
+                              <Top>3.21672cm</Top>
+                              <Left>8.24265cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>7</ZIndex>
@@ -441,10 +447,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>2.87286cm</Top>
+                              <Top>3.19036cm</Top>
                               <Left>1.48872cm</Left>
                               <Height>0.57559cm</Height>
-                              <Width>3.0715cm</Width>
+                              <Width>2.06022cm</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
@@ -473,10 +479,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>2.30109cm</Top>
+                              <Top>2.61859cm</Top>
                               <Left>1.48872cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>3.0715cm</Width>
+                              <Width>2.06022cm</Width>
                               <ZIndex>9</ZIndex>
                               <Style>
                                 <Border>
@@ -871,10 +877,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>1.73284cm</Top>
-                              <Left>11.40767cm</Left>
+                              <Top>2.05034cm</Top>
+                              <Left>14.58267cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>2.5cm</Width>
+                              <Width>1.865cm</Width>
                               <ZIndex>22</ZIndex>
                               <Style>
                                 <Border>
@@ -903,10 +909,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>2.33989cm</Top>
-                              <Left>11.40767cm</Left>
+                              <Top>2.65739cm</Top>
+                              <Left>14.58267cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>2.5cm</Width>
+                              <Width>1.865cm</Width>
                               <ZIndex>23</ZIndex>
                               <Style>
                                 <Border>
@@ -939,6 +945,7 @@
                                       <Value>=UCase(Fields!division_name.Value)</Value>
                                       <Style>
                                         <FontSize>8pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -946,10 +953,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_name</rd:DefaultName>
-                              <Top>2.91519cm</Top>
-                              <Left>4.73661cm</Left>
+                              <Top>3.23269cm</Top>
+                              <Left>3.78411cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>5.36222cm</Width>
+                              <Width>4.1849cm</Width>
                               <ZIndex>25</ZIndex>
                               <Style>
                                 <Border>
@@ -978,10 +985,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>2.31779cm</Top>
-                              <Left>4.73661cm</Left>
+                              <Top>2.63529cm</Top>
+                              <Left>3.78411cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>6.31472cm</Width>
+                              <Width>10.48339cm</Width>
                               <ZIndex>26</ZIndex>
                               <Style>
                                 <Border>
@@ -1335,7 +1342,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Top>4.71281cm</Top>
-                              <Left>11.40767cm</Left>
+                              <Left>12.04267cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>36</ZIndex>
@@ -1367,7 +1374,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Top>5.30689cm</Top>
-                              <Left>12.04267cm</Left>
+                              <Left>12.67767cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>37</ZIndex>
@@ -1399,7 +1406,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Top>5.93625cm</Top>
-                              <Left>12.04267cm</Left>
+                              <Left>12.67767cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>38</ZIndex>
@@ -1431,7 +1438,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Top>6.56208cm</Top>
-                              <Left>12.04267cm</Left>
+                              <Left>12.67767cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>39</ZIndex>
@@ -1463,7 +1470,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Top>7.18792cm</Top>
-                              <Left>11.40767cm</Left>
+                              <Left>12.04267cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>3.135cm</Width>
                               <ZIndex>40</ZIndex>
@@ -1495,7 +1502,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Top>7.83375cm</Top>
-                              <Left>11.40767cm</Left>
+                              <Left>12.04267cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>1.8015cm</Width>
                               <ZIndex>41</ZIndex>
@@ -1527,7 +1534,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Top>9.05719cm</Top>
-                              <Left>11.40767cm</Left>
+                              <Left>12.04267cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>3.135cm</Width>
                               <ZIndex>42</ZIndex>
@@ -1562,7 +1569,7 @@
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
                               <Top>5.30689cm</Top>
-                              <Left>15.86183cm</Left>
+                              <Left>16.49683cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>43</ZIndex>
@@ -1597,7 +1604,7 @@
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
                               <Top>5.93625cm</Top>
-                              <Left>15.86183cm</Left>
+                              <Left>16.49683cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>44</ZIndex>
@@ -1632,7 +1639,7 @@
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
                               <Top>6.56208cm</Top>
-                              <Left>15.86183cm</Left>
+                              <Left>16.49683cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>45</ZIndex>
@@ -1667,7 +1674,7 @@
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
                               <Top>7.20792cm</Top>
-                              <Left>15.86183cm</Left>
+                              <Left>16.49683cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>46</ZIndex>
@@ -1702,7 +1709,7 @@
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
                               <Top>7.81375cm</Top>
-                              <Left>15.86183cm</Left>
+                              <Left>16.49683cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>47</ZIndex>
@@ -1737,7 +1744,7 @@
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
                               <Top>9.05719cm</Top>
-                              <Left>15.86183cm</Left>
+                              <Left>16.49683cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>48</ZIndex>
@@ -1775,13 +1782,13 @@
                                     </TextRun>
                                   </TextRuns>
                                   <Style>
-                                    <TextAlign>Left</TextAlign>
+                                    <TextAlign>Right</TextAlign>
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>1.75494cm</Top>
-                              <Left>14.4305cm</Left>
+                              <Top>2.07244cm</Top>
+                              <Left>16.653cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>49</ZIndex>
@@ -1809,13 +1816,13 @@
                                     </TextRun>
                                   </TextRuns>
                                   <Style>
-                                    <TextAlign>Left</TextAlign>
+                                    <TextAlign>Right</TextAlign>
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>2.33284cm</Top>
-                              <Left>14.4305cm</Left>
+                              <Top>2.65034cm</Top>
+                              <Left>16.653cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>50</ZIndex>

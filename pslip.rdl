@@ -50,7 +50,7 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>select * from vw_payroll_summary order by emp_code</CommandText>
+        <CommandText>select * from vw_payroll_summary</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -60,10 +60,6 @@
         </Field>
         <Field Name="emp_name">
           <DataField>emp_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="full_name">
-          <DataField>full_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="dept_code">
@@ -78,21 +74,13 @@
           <DataField>division_code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="BANK_CODE">
-          <DataField>BANK_CODE</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="division_name">
           <DataField>division_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="AC_NO">
-          <DataField>AC_NO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="basic_salary">
           <DataField>basic_salary</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="attendance">
           <DataField>attendance</DataField>
@@ -138,21 +126,9 @@
           <DataField>late_hrs</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="lateHoursAmount">
-          <DataField>lateHoursAmount</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="TRN_MONTH">
-          <DataField>TRN_MONTH</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="ot_total">
           <DataField>ot_total</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="TRN_YEAR">
-          <DataField>TRN_YEAR</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="sub_total">
           <DataField>sub_total</DataField>
@@ -160,10 +136,6 @@
         </Field>
         <Field Name="net_salary">
           <DataField>net_salary</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="total_deductions">
-          <DataField>total_deductions</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
       </Fields>
@@ -195,7 +167,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>DAR AKHBAR ALKHALEEJ PRESS &amp; PUBLISHING</Value>
+                                      <Value>DAR AKHBAR AL KHALEEJ PRESS &amp; PUBLICATIONS</Value>
                                       <Style>
                                         <FontSize>16pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -222,9 +194,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox21</rd:DefaultName>
-                              <Top>0.3285cm</Top>
+                              <Top>0.011cm</Top>
                               <Left>1.11125cm</Left>
-                              <Height>1.58778cm</Height>
+                              <Height>1.38317cm</Height>
                               <Width>16.75694cm</Width>
                               <Style>
                                 <Border>
@@ -237,10 +209,9 @@
                               </Style>
                             </Textbox>
                             <Line Name="Line1">
-                              <Top>1.97978cm</Top>
-                              <Left>1.04894cm</Left>
+                              <Top>1.53528cm</Top>
                               <Height>0cm</Height>
-                              <Width>18.46389cm</Width>
+                              <Width>20.46533cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -252,10 +223,9 @@
                               <Source>Embedded</Source>
                               <Value>aaklogo1</Value>
                               <Sizing>Fit</Sizing>
-                              <Top>0.3175cm</Top>
                               <Left>18.01283cm</Left>
-                              <Height>1.07667cm</Height>
-                              <Width>1.85983cm</Width>
+                              <Height>1.5cm</Height>
+                              <Width>1.5cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
@@ -272,20 +242,18 @@
                                     <TextRun>
                                       <Value>=Fields!emp_code.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
+                                  <Style />
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>2.05034cm</Top>
-                              <Left>3.78411cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.18722cm</Width>
+                              <Top>1.71167cm</Top>
+                              <Left>3.85233cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>3</ZIndex>
                               <Style>
                                 <Border>
@@ -303,22 +271,20 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=UCase(Fields!dept_name.Value)</Value>
+                                      <Value>=Fields!dept_name.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
+                                  <Style />
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>dept_name</rd:DefaultName>
-                              <Top>3.23882cm</Top>
-                              <Left>10.16599cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>8.89176cm</Width>
+                              <Top>2.97278cm</Top>
+                              <Left>14.4305cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>5.71733cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
@@ -339,7 +305,7 @@
                                     <TextRun>
                                       <Value>Code</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -347,10 +313,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>2.05034cm</Top>
-                              <Left>1.48872cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.06022cm</Width>
+                              <Top>1.71167cm</Top>
+                              <Left>1.04894cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>5</ZIndex>
                               <Style>
                                 <Border>
@@ -371,7 +337,7 @@
                                     <TextRun>
                                       <Value>Basic Salary</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -379,10 +345,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>4.15047cm</Top>
-                              <Left>1.48872cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.06022cm</Width>
+                              <Top>3.86472cm</Top>
+                              <Left>1.04894cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
@@ -403,7 +369,7 @@
                                     <TextRun>
                                       <Value>Department</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -411,9 +377,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>3.23269cm</Top>
-                              <Left>7.34716cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>2.94028cm</Top>
+                              <Left>11.40767cm</Left>
+                              <Height>0.6cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
@@ -435,7 +401,7 @@
                                     <TextRun>
                                       <Value>Division</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -443,10 +409,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>3.19036cm</Top>
-                              <Left>1.48872cm</Left>
-                              <Height>0.57559cm</Height>
-                              <Width>2.06022cm</Width>
+                              <Top>2.94694cm</Top>
+                              <Left>1.04894cm</Left>
+                              <Height>0.56472cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
@@ -467,7 +433,7 @@
                                     <TextRun>
                                       <Value>Name</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -475,10 +441,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>2.61859cm</Top>
-                              <Left>1.48872cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.06022cm</Width>
+                              <Top>2.31167cm</Top>
+                              <Left>1.04894cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>9</ZIndex>
                               <Style>
                                 <Border>
@@ -491,10 +457,10 @@
                               </Style>
                             </Textbox>
                             <Line Name="Line2">
-                              <Top>4.06933cm</Top>
+                              <Top>3.72008cm</Top>
                               <Left>1.04894cm</Left>
                               <Height>0cm</Height>
-                              <Width>18.46389cm</Width>
+                              <Width>19.09889cm</Width>
                               <ZIndex>10</ZIndex>
                               <Style>
                                 <Border>
@@ -509,10 +475,9 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Allowance:</Value>
+                                      <Value>Allowance</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -520,10 +485,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>4.71281cm</Top>
-                              <Left>1.48872cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.06022cm</Width>
+                              <Top>4.49056cm</Top>
+                              <Left>1.04894cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>11</ZIndex>
                               <Style>
                                 <Border>
@@ -542,9 +507,9 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Special Allowance</Value>
+                                      <Value>Special</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -552,10 +517,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>5.30689cm</Top>
-                              <Left>2.12844cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.43178cm</Width>
+                              <Top>5.11639cm</Top>
+                              <Left>1.62044cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>12</ZIndex>
                               <Style>
                                 <Border>
@@ -576,7 +541,7 @@
                                     <TextRun>
                                       <Value>Rent</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -584,10 +549,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>5.93625cm</Top>
-                              <Left>2.12844cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.43178cm</Width>
+                              <Top>5.7775cm</Top>
+                              <Left>1.62044cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>13</ZIndex>
                               <Style>
                                 <Border>
@@ -608,7 +573,7 @@
                                     <TextRun>
                                       <Value>Travel</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -616,10 +581,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>6.56208cm</Top>
-                              <Left>2.12844cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.43178cm</Width>
+                              <Top>6.40333cm</Top>
+                              <Left>1.62044cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>14</ZIndex>
                               <Style>
                                 <Border>
@@ -640,7 +605,7 @@
                                     <TextRun>
                                       <Value>Other Allowance</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -648,10 +613,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>7.18792cm</Top>
-                              <Left>1.48991cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>3.07031cm</Width>
+                              <Top>7.02917cm</Top>
+                              <Left>1.04894cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>15</ZIndex>
                               <Style>
                                 <Border>
@@ -672,7 +637,7 @@
                                     <TextRun>
                                       <Value>Over Time</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -680,10 +645,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>7.81375cm</Top>
-                              <Left>1.48991cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>3.07031cm</Width>
+                              <Top>7.655cm</Top>
+                              <Left>1.04894cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>16</ZIndex>
                               <Style>
                                 <Border>
@@ -704,7 +669,7 @@
                                     <TextRun>
                                       <Value>Night Shift</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -712,10 +677,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>8.41136cm</Top>
-                              <Left>1.48991cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>3.07031cm</Width>
+                              <Top>8.31611cm</Top>
+                              <Left>1.04894cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>17</ZIndex>
                               <Style>
                                 <Border>
@@ -736,7 +701,7 @@
                                     <TextRun>
                                       <Value>GROSS SALARY</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -744,10 +709,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>9.03719cm</Top>
-                              <Left>1.48991cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>3.07031cm</Width>
+                              <Top>8.97369cm</Top>
+                              <Left>1.04894cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>18</ZIndex>
                               <Style>
                                 <Border>
@@ -768,7 +733,7 @@
                                     <TextRun>
                                       <Value>Signature</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -776,10 +741,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>10.48229cm</Top>
-                              <Left>1.48991cm</Left>
+                              <Top>10.41879cm</Top>
+                              <Left>1.04775cm</Left>
                               <Height>0.52cm</Height>
-                              <Width>2.05784cm</Width>
+                              <Width>2.5cm</Width>
                               <ZIndex>19</ZIndex>
                               <Style>
                                 <Border>
@@ -800,7 +765,7 @@
                                     <TextRun>
                                       <Value>Date</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -808,10 +773,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>10.48229cm</Top>
+                              <Top>10.41879cm</Top>
                               <Left>11.40767cm</Left>
                               <Height>0.52cm</Height>
-                              <Width>2.5cm</Width>
+                              <Width>2.373cm</Width>
                               <ZIndex>20</ZIndex>
                               <Style>
                                 <Border>
@@ -832,7 +797,7 @@
                                     <TextRun>
                                       <Value>NET SALARY</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -842,9 +807,9 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Top>9.69478cm</Top>
-                              <Left>1.48872cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>3.0715cm</Width>
+                              <Left>1.04775cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>21</ZIndex>
                               <Style>
                                 <Border>
@@ -865,7 +830,7 @@
                                     <TextRun>
                                       <Value>Month</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -873,9 +838,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>2.05034cm</Top>
-                              <Left>13.63017cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>1.67639cm</Top>
+                              <Left>11.40767cm</Left>
+                              <Height>0.52cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>22</ZIndex>
                               <Style>
@@ -897,7 +862,7 @@
                                     <TextRun>
                                       <Value>Year</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -905,9 +870,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>2.65739cm</Top>
-                              <Left>13.63017cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>2.27639cm</Top>
+                              <Left>11.40767cm</Left>
+                              <Height>0.52cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>23</ZIndex>
                               <Style>
@@ -922,9 +887,8 @@
                             </Textbox>
                             <Line Name="Line3">
                               <Top>10.36941cm</Top>
-                              <Left>1.04894cm</Left>
                               <Height>0cm</Height>
-                              <Width>18.46389cm</Width>
+                              <Width>20.14783cm</Width>
                               <ZIndex>24</ZIndex>
                               <Style>
                                 <Border>
@@ -938,22 +902,20 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=UCase(Fields!division_name.Value)</Value>
+                                      <Value>=Fields!division_name.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
+                                  <Style />
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_name</rd:DefaultName>
-                              <Top>3.23269cm</Top>
-                              <Left>3.78411cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>3.45722cm</Width>
+                              <Top>2.94028cm</Top>
+                              <Left>3.85233cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>5.675cm</Width>
                               <ZIndex>25</ZIndex>
                               <Style>
                                 <Border>
@@ -971,10 +933,9 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=UCase(Fields!emp_name.Value)</Value>
+                                      <Value>=Fields!emp_name.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -982,10 +943,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>2.63529cm</Top>
-                              <Left>3.78411cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>9.48972cm</Width>
+                              <Top>2.31167cm</Top>
+                              <Left>3.85233cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>5.675cm</Width>
                               <ZIndex>26</ZIndex>
                               <Style>
                                 <Border>
@@ -1006,8 +967,7 @@
                                     <TextRun>
                                       <Value>=Fields!basic_salary.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1018,10 +978,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>4.17047cm</Top>
-                              <Left>6.33684cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.58467cm</Width>
+                              <Top>3.88472cm</Top>
+                              <Left>5.68067cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>27</ZIndex>
                               <Style>
                                 <Border>
@@ -1042,7 +1002,7 @@
                                     <TextRun>
                                       <Value>=Fields!spage_allowance.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1053,10 +1013,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>5.32689cm</Top>
-                              <Left>6.33684cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.58467cm</Width>
+                              <Top>5.13639cm</Top>
+                              <Left>5.68067cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>28</ZIndex>
                               <Style>
                                 <Border>
@@ -1077,7 +1037,7 @@
                                     <TextRun>
                                       <Value>=Fields!rent_allowance.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1088,10 +1048,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>5.97153cm</Top>
-                              <Left>6.33684cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.58467cm</Width>
+                              <Top>5.81278cm</Top>
+                              <Left>5.68067cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>29</ZIndex>
                               <Style>
                                 <Border>
@@ -1112,7 +1072,7 @@
                                     <TextRun>
                                       <Value>=Fields!travel_allowance.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1123,10 +1083,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>6.58208cm</Top>
-                              <Left>6.33684cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.58467cm</Width>
+                              <Top>6.42333cm</Top>
+                              <Left>5.68067cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>30</ZIndex>
                               <Style>
                                 <Border>
@@ -1147,7 +1107,7 @@
                                     <TextRun>
                                       <Value>=Fields!other_allowance_total.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1158,10 +1118,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>7.20792cm</Top>
-                              <Left>6.33684cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.58467cm</Width>
+                              <Top>7.04917cm</Top>
+                              <Left>5.68067cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>31</ZIndex>
                               <Style>
                                 <Border>
@@ -1182,7 +1142,7 @@
                                     <TextRun>
                                       <Value>=Fields!ot_total.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1193,10 +1153,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>7.83375cm</Top>
-                              <Left>6.33684cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.58467cm</Width>
+                              <Top>7.675cm</Top>
+                              <Left>5.68067cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>32</ZIndex>
                               <Style>
                                 <Border>
@@ -1217,7 +1177,7 @@
                                     <TextRun>
                                       <Value>=Fields!nShift_allowance.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1228,10 +1188,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>8.43136cm</Top>
-                              <Left>6.33684cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.58467cm</Width>
+                              <Top>8.33611cm</Top>
+                              <Left>5.68067cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>33</ZIndex>
                               <Style>
                                 <Border>
@@ -1252,7 +1212,7 @@
                                     <TextRun>
                                       <Value>=Fields!sub_total.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1263,10 +1223,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>9.05719cm</Top>
-                              <Left>6.33684cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.58467cm</Width>
+                              <Top>8.99369cm</Top>
+                              <Left>5.68067cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>34</ZIndex>
                               <Style>
                                 <Border>
@@ -1293,7 +1253,7 @@
                                     <TextRun>
                                       <Value>=Fields!net_salary.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
@@ -1306,9 +1266,9 @@
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
                               <Top>9.71478cm</Top>
-                              <Left>6.33684cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.58467cm</Width>
+                              <Left>5.68067cm</Left>
+                              <Height>0.5cm</Height>
+                              <Width>2.5cm</Width>
                               <ZIndex>35</ZIndex>
                               <Style>
                                 <Border>
@@ -1327,10 +1287,9 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Deductions:</Value>
+                                      <Value>Deductions</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1338,9 +1297,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>4.71281cm</Top>
-                              <Left>12.04267cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>4.49056cm</Top>
+                              <Left>11.40767cm</Left>
+                              <Height>0.52cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>36</ZIndex>
                               <Style>
@@ -1362,7 +1321,7 @@
                                     <TextRun>
                                       <Value>Social Insurance</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1370,9 +1329,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>5.30689cm</Top>
-                              <Left>12.67767cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>5.13167cm</Top>
+                              <Left>12.04267cm</Left>
+                              <Height>0.52cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>37</ZIndex>
                               <Style>
@@ -1394,7 +1353,7 @@
                                     <TextRun>
                                       <Value>Eskan Bank</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1402,9 +1361,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>5.93625cm</Top>
-                              <Left>12.67767cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>5.79278cm</Top>
+                              <Left>12.04267cm</Left>
+                              <Height>0.52cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>38</ZIndex>
                               <Style>
@@ -1426,7 +1385,7 @@
                                     <TextRun>
                                       <Value>Loan</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1434,9 +1393,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>6.56208cm</Top>
-                              <Left>12.67767cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>6.41861cm</Top>
+                              <Left>12.04267cm</Left>
+                              <Height>0.52cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>39</ZIndex>
                               <Style>
@@ -1458,7 +1417,7 @@
                                     <TextRun>
                                       <Value>Other Deductions</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1466,9 +1425,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>7.18792cm</Top>
-                              <Left>12.04267cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>7.04917cm</Top>
+                              <Left>11.40767cm</Left>
+                              <Height>0.52cm</Height>
                               <Width>3.135cm</Width>
                               <ZIndex>40</ZIndex>
                               <Style>
@@ -1490,7 +1449,7 @@
                                     <TextRun>
                                       <Value>Late Hours</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1498,10 +1457,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>7.83375cm</Top>
-                              <Left>12.04267cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>1.8015cm</Width>
+                              <Top>7.675cm</Top>
+                              <Left>11.40767cm</Left>
+                              <Height>0.52cm</Height>
+                              <Width>3.135cm</Width>
                               <ZIndex>41</ZIndex>
                               <Style>
                                 <Border>
@@ -1522,7 +1481,7 @@
                                     <TextRun>
                                       <Value>TOTAL DEDUCTIONS</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1530,9 +1489,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>9.05719cm</Top>
-                              <Left>12.04267cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>8.97369cm</Top>
+                              <Left>11.40767cm</Left>
+                              <Height>0.52cm</Height>
                               <Width>3.135cm</Width>
                               <ZIndex>42</ZIndex>
                               <Style>
@@ -1554,7 +1513,7 @@
                                     <TextRun>
                                       <Value>=Fields!gosi_amt.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1565,9 +1524,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>5.30689cm</Top>
-                              <Left>16.49683cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>5.10111cm</Top>
+                              <Left>15.86183cm</Left>
+                              <Height>0.5cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>43</ZIndex>
                               <Style>
@@ -1589,7 +1548,7 @@
                                     <TextRun>
                                       <Value>=Fields!hbank_loan.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1600,9 +1559,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>5.93625cm</Top>
-                              <Left>16.49683cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>5.7775cm</Top>
+                              <Left>15.86183cm</Left>
+                              <Height>0.5cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>44</ZIndex>
                               <Style>
@@ -1624,7 +1583,7 @@
                                     <TextRun>
                                       <Value>=Fields!loan_deduction.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>0.000;(0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1635,9 +1594,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>6.56208cm</Top>
-                              <Left>16.49683cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>6.38805cm</Top>
+                              <Left>15.86183cm</Left>
+                              <Height>0.5cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>45</ZIndex>
                               <Style>
@@ -1659,7 +1618,7 @@
                                     <TextRun>
                                       <Value>=Fields!other_deduction_total.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1670,9 +1629,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>7.20792cm</Top>
-                              <Left>16.49683cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>7.01389cm</Top>
+                              <Left>15.86183cm</Left>
+                              <Height>0.5cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>46</ZIndex>
                               <Style>
@@ -1692,9 +1651,9 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!lateHoursAmount.Value</Value>
+                                      <Value>=Fields!late_hrs.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1705,9 +1664,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>7.81375cm</Top>
-                              <Left>16.49683cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>7.63972cm</Top>
+                              <Left>15.86183cm</Left>
+                              <Height>0.5cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>47</ZIndex>
                               <Style>
@@ -1727,9 +1686,9 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!total_deductions.Value</Value>
+                                      <Value>=Fields!late_hrs.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>9pt</FontSize>
                                         <Format>#,0.000;(#,0.000)</Format>
                                       </Style>
                                     </TextRun>
@@ -1740,9 +1699,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>9.05719cm</Top>
-                              <Left>16.49683cm</Left>
-                              <Height>0.51087cm</Height>
+                              <Top>8.97369cm</Top>
+                              <Left>15.86183cm</Left>
+                              <Height>0.5cm</Height>
                               <Width>2.5635cm</Width>
                               <ZIndex>48</ZIndex>
                               <Style>
@@ -1759,143 +1718,6 @@
                                   <Style>Solid</Style>
                                   <Width>1pt</Width>
                                 </BottomBorder>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="emp_code18">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=MonthName(Fields!TRN_MONTH.Value,False)</Value>
-                                      <Style>
-                                        <FontSize>8pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Right</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>2.07244cm</Top>
-                              <Left>16.55775cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.5cm</Width>
-                              <ZIndex>49</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="emp_code19">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!TRN_YEAR.Value</Value>
-                                      <Style>
-                                        <FontSize>8pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Right</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>2.65034cm</Top>
-                              <Left>16.55775cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>2.5cm</Width>
-                              <ZIndex>50</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="emp_code21">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!attendance.Value</Value>
-                                      <Style>
-                                        <FontSize>8pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
-                                        <Format>#,0;(#,0)</Format>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Right</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>emp_code</rd:DefaultName>
-                              <Top>4.17047cm</Top>
-                              <Left>4.04283cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>0.87017cm</Width>
-                              <ZIndex>51</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Textbox51">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>days</Value>
-                                      <Style>
-                                        <FontSize>8pt</FontSize>
-                                        <Format>0;(0)</Format>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>4.18222cm</Top>
-                              <Left>5.05411cm</Left>
-                              <Height>0.51087cm</Height>
-                              <Width>0.82783cm</Width>
-                              <ZIndex>52</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -45,12 +45,27 @@
           <DataField>STATUS</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Column6">
+          <DataField>Column6</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>select * from vw_payroll_summary order by emp_code</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@empCode">
+            <Value>=Parameters!empCode.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@trnYear">
+            <Value>=Parameters!trnYear.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@trnMonth">
+            <Value>=Parameters!trnMonth.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select * from vw_payroll_summary_history where emp_code = (@empCode) and trn_year = (@trnYear) and trn_month = (@trnMonth)</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -62,10 +77,6 @@
           <DataField>emp_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="full_name">
-          <DataField>full_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="dept_code">
           <DataField>dept_code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -74,97 +85,97 @@
           <DataField>dept_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="division_code">
-          <DataField>division_code</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="BANK_CODE">
           <DataField>BANK_CODE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="division_name">
-          <DataField>division_name</DataField>
+        <Field Name="division_code">
+          <DataField>division_code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="AC_NO">
           <DataField>AC_NO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="division_name">
+          <DataField>division_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="basic_salary">
           <DataField>basic_salary</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="attendance">
           <DataField>attendance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="loan_deduction">
           <DataField>loan_deduction</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="rent_allowance">
           <DataField>rent_allowance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="travel_allowance">
           <DataField>travel_allowance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="spage_allowance">
           <DataField>spage_allowance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="gosi_amt">
           <DataField>gosi_amt</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="hbank_loan">
           <DataField>hbank_loan</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="nShift_allowance">
           <DataField>nShift_allowance</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="other_allowance_total">
           <DataField>other_allowance_total</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="other_deduction_total">
           <DataField>other_deduction_total</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="late_hrs">
           <DataField>late_hrs</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="lateHoursAmount">
           <DataField>lateHoursAmount</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="TRN_MONTH">
           <DataField>TRN_MONTH</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="ot_total">
           <DataField>ot_total</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="TRN_YEAR">
           <DataField>TRN_YEAR</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="sub_total">
           <DataField>sub_total</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="net_salary">
           <DataField>net_salary</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="total_deductions">
           <DataField>total_deductions</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -309,16 +320,14 @@
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
+                                  <Style />
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>dept_name</rd:DefaultName>
-                              <Top>3.23882cm</Top>
-                              <Left>10.16599cm</Left>
+                              <Top>3.28115cm</Top>
+                              <Left>11.28473cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>8.89176cm</Width>
+                              <Width>7.7756cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
@@ -411,8 +420,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
-                              <Top>3.23269cm</Top>
-                              <Left>7.34716cm</Left>
+                              <Top>3.25199cm</Top>
+                              <Left>8.60834cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>7</ZIndex>
@@ -811,7 +820,7 @@
                               <Top>10.48229cm</Top>
                               <Left>11.40767cm</Left>
                               <Height>0.52cm</Height>
-                              <Width>2.5cm</Width>
+                              <Width>2.373cm</Width>
                               <ZIndex>20</ZIndex>
                               <Style>
                                 <Border>
@@ -874,7 +883,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Top>2.05034cm</Top>
-                              <Left>13.63017cm</Left>
+                              <Left>13.94767cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>22</ZIndex>
@@ -906,7 +915,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox26</rd:DefaultName>
                               <Top>2.65739cm</Top>
-                              <Left>13.63017cm</Left>
+                              <Left>13.94767cm</Left>
                               <Height>0.51087cm</Height>
                               <Width>2.5cm</Width>
                               <ZIndex>23</ZIndex>
@@ -944,16 +953,14 @@
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
+                                  <Style />
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>emp_name</rd:DefaultName>
                               <Top>3.23269cm</Top>
                               <Left>3.78411cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>3.45722cm</Width>
+                              <Width>4.43618cm</Width>
                               <ZIndex>25</ZIndex>
                               <Style>
                                 <Border>
@@ -985,7 +992,7 @@
                               <Top>2.63529cm</Top>
                               <Left>3.78411cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>9.48972cm</Width>
+                              <Width>9.99656cm</Width>
                               <ZIndex>26</ZIndex>
                               <Style>
                                 <Border>
@@ -1785,9 +1792,9 @@
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
                               <Top>2.07244cm</Top>
-                              <Left>16.55775cm</Left>
+                              <Left>16.49683cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>2.5cm</Width>
+                              <Width>2.5635cm</Width>
                               <ZIndex>49</ZIndex>
                               <Style>
                                 <Border>
@@ -1819,9 +1826,9 @@
                               </Paragraphs>
                               <rd:DefaultName>emp_code</rd:DefaultName>
                               <Top>2.65034cm</Top>
-                              <Left>16.55775cm</Left>
+                              <Left>16.49683cm</Left>
                               <Height>0.51087cm</Height>
-                              <Width>2.5cm</Width>
+                              <Width>2.5635cm</Width>
                               <ZIndex>50</ZIndex>
                               <Style>
                                 <Border>
@@ -1936,6 +1943,11 @@
                 <Style>None</Style>
               </Border>
             </Style>
+            <cl:ComponentMetadata>
+              <cl:ComponentId>12aa278f-c6d9-42e0-aaea-8d6de22dc1f1</cl:ComponentId>
+              <cl:SourcePath>/Report Parts/Tablix1</cl:SourcePath>
+              <cl:SyncDate>2023-01-16T13:15:07.1961741+03:00</cl:SyncDate>
+            </cl:ComponentMetadata>
           </Tablix>
         </ReportItems>
         <Height>111.0798mm</Height>
@@ -1956,10 +1968,46 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="empCode">
+      <DataType>String</DataType>
+      <Prompt>emp Code</Prompt>
+      <cl:ComponentMetadata>
+        <cl:ComponentId>62c87651-26c6-42a6-a262-ba066e47ef42</cl:ComponentId>
+        <cl:SourcePath>/Report Parts/empCode</cl:SourcePath>
+        <cl:SyncDate>2023-01-16T13:15:07.1167679+03:00</cl:SyncDate>
+      </cl:ComponentMetadata>
+    </ReportParameter>
+    <ReportParameter Name="trnYear">
+      <DataType>String</DataType>
+      <Prompt>trn Year</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="trnMonth">
+      <DataType>String</DataType>
+      <Prompt>trn Month</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>empCode</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>trnYear</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>trnMonth</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <EmbeddedImages>
@@ -2012,5 +2060,6 @@ Gi1EXIBKQm7AwgV7Iv/AjtLWEKIgQXOWyC1GvGxwWzU2nclu9Ls9AZcv4EY5jBSWKoitfp/e6XCGQ2qr
   </EmbeddedImages>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportServerUrl>http://aak-payroll/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>8b87cd2d-b634-45d0-acae-348c172d1174</rd:ReportID>
 </Report>
